@@ -1,0 +1,53 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" version="24.8.6">
+  <diagram name="Diagrama de Clases" id="0">
+    <mxGraphModel dx="1122" dy="696" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Users" value="&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;Users&#xa;&#xa;+ id : INT&#xa;+ firstname : VARCHAR(50)&#xa;+ lastname : VARCHAR(50)&#xa;+ password : VARCHAR(255)&#xa;+ email : VARCHAR(100)" style="swimlane;startSize=23;" parent="1" vertex="1">
+          <mxGeometry x="120" y="110" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Addresses" value="&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;Addresses&#xa;&#xa;+ id : INT&#xa;+ user_id : INT&#xa;+ country : VARCHAR(50)&#xa;+ state : VARCHAR(50)&#xa;+ city : VARCHAR(50)&#xa;+ address : VARCHAR(255)&#xa;+ zip : VARCHAR(20)" style="swimlane;verticalAlign=middle;" parent="1" vertex="1">
+          <mxGeometry x="410" y="100" width="200" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Orders" value="&#xa;&#xa;&#xa;&#xa;&#xa;Orders&#xa;&#xa;+ id : INT&#xa;+ user_id : INT&#xa;+ timestamp : DATETIME&#xa;+ payment_method_id : INT" style="swimlane" parent="1" vertex="1">
+          <mxGeometry x="90" y="310" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Categories" value="&#xa;&#xa;&#xa;Categories&#xa;&#xa;+ id : INT&#xa;+ name : VARCHAR(50)" style="swimlane" parent="1" vertex="1">
+          <mxGeometry x="440" y="600" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Products" value="&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;Products&#xa;&#xa;+ id : INT&#xa;+ name : VARCHAR(100)&#xa;+ description : TEXT&#xa;+ price : DECIMAL(10,2)&#xa;+ stock : INT&#xa;+ category_id : INT" style="swimlane" parent="1" vertex="1">
+          <mxGeometry x="410" y="430" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Product_details" value="&#xa;&#xa;&#xa;&#xa;Product_details&#xa;&#xa;+ id : INT&#xa;+ order_id : INT&#xa;+ product_id : INT&#xa;+ count : INT" style="swimlane" parent="1" vertex="1">
+          <mxGeometry x="410" y="290" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rel1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="Addresses" target="Users" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="Orders" target="Users" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="210" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="Orders" target="Payment_methods" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="Products" target="Categories" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="Product_details" target="Orders" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" parent="1" source="Product_details" target="Products" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Payment_methods" value="&#xa;&#xa;Payment_methods&#xa;&#xa;+ id : INT&#xa;+ name : VARCHAR(50)" style="swimlane" parent="1" vertex="1">
+          <mxGeometry x="120" y="500" width="140" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
